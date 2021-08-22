@@ -1,0 +1,2 @@
+# Trying out CSS Houdini @property
+Example from [https://developer.mozilla.org/en-US/docs/Web/CSS/@property](https://developer.mozilla.org/en-US/docs/Web/CSS/@property) and [https://css-tricks.com/updating-a-css-variable-with-javascript/](https://css-tricks.com/updating-a-css-variable-with-javascript/).

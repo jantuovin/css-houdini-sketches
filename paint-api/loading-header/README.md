@@ -1,0 +1,2 @@
+# Loading indicator header using CSS Houdini Paint API
+Read more from [https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API/Guide](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API/Guide).

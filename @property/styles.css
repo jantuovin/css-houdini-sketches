@@ -1,0 +1,212 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@property --square-side {
+  syntax: "<length>";
+  initial-value: 60px;
+  inherits: false;
+}
+
+@property --rotation-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --scale-factor {
+  syntax: "<number>";
+  initial-value: 1;
+  inherits: false;
+}
+
+@property --translate-factor {
+  syntax: "<length-percentage>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --from-edge {
+  syntax: "<length>";
+  initial-value: 40px;
+  inherits: false;
+}
+
+.square {
+  width: var(--square-side);
+  height: var(--square-side);
+  font-weight: 700;
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  transform: 
+    rotate(var(--rotation-angle)) 
+    scale(var(--scale-factor));
+}
+
+@keyframes spin {
+  100% {
+    --rotation-angle: 360deg;
+  }
+}
+
+@keyframes shrink {
+  50% {
+    --scale-factor: 0.5;
+  }
+  100% {
+    --scale-factor: 1;
+  }
+}
+
+.square--red {
+  background-color: red;
+  top: var(--from-edge);
+  left: var(--from-edge);
+  animation:
+    spin 3s linear infinite, 
+    shrink 1.5s linear infinite,
+    move-red 10s linear infinite; 
+}
+
+@keyframes move-red {
+  0% {
+    top: var(--from-edge);
+    left: var(--from-edge);
+  }
+  25% {
+    top: calc(100vh - 100px);
+    left: var(--from-edge);
+  }
+  50% {
+    top: calc(100vh - 100px);
+    left: calc(100vw - 100px);
+  }
+  75% {
+    top: var(--from-edge);
+    left: calc(100vw - 100px);
+  }
+  100% {
+    top: var(--from-edge);
+    left: var(--from-edge);
+  }
+}
+
+.square--blue {
+  background-color: blue;
+  color: white;
+  bottom: var(--from-edge);
+  left: var(--from-edge);
+  animation:
+    spin 3s linear infinite, 
+    shrink 1.5s linear infinite,
+    move-blue 7.5s linear infinite;
+}
+
+@keyframes move-blue {
+  0% {
+    bottom: var(--from-edge);
+    left: var(--from-edge);
+  }
+  25% {
+    bottom: var(--from-edge);
+    left: calc(100vw - 100px)
+  }
+  50% {
+    bottom: calc(100vh - 100px);
+    left: calc(100vw - 100px);
+  }
+  75% {
+    bottom: calc(100vh - 100px);
+    left: var(--from-edge);
+  }
+  100% {
+    bottom: var(--from-edge);
+    left: var(--from-edge);
+  }
+}
+
+.square--green {
+  background-color: green;
+  bottom: var(--from-edge);
+  right: var(--from-edge);
+  animation: 
+    spin 3s linear infinite, 
+    shrink 1.5s linear infinite,
+    move-green 5s linear infinite;
+}
+
+@keyframes move-green {
+  0% {
+    bottom: var(--from-edge);
+    right: var(--from-edge);
+  }
+  25% {
+    bottom: calc(100vh - 100px);
+    right: var(--from-edge);
+  }
+  50% {
+    bottom: calc(100vh - 100px);
+    right: calc(100vw - 100px);
+  }
+  75% {
+    bottom: var(--from-edge);
+    right: calc(100vw - 100px);
+  }
+  100% {
+    bottom: var(--from-edge);
+    right: var(--from-edge);
+  }
+}
+
+.square--yellow {
+  background-color: yellow;
+  top: var(--from-edge);
+  right: var(--from-edge);
+  animation: 
+    spin 3s linear infinite, 
+    shrink 1.5s linear infinite,
+    move-yellow 2.5s linear infinite;
+}
+
+@keyframes move-yellow {
+  0% {
+    top: var(--from-edge);
+    right: var(--from-edge);
+  }
+  25% {
+    top: var(--from-edge);
+    right: calc(100vw - 100px)
+  }
+  50% {
+    top: calc(100vh - 100px);
+    right: calc(100vw - 100px);
+  }
+  75% {
+    top: calc(100vh - 100px);
+    right: var(--from-edge);
+  }
+  100% {
+    top: var(--from-edge);
+    right: var(--from-edge);
+  }
+}
+
+.square--black {
+  --black-x: 0px;
+  --black-y: 0px;
+  background-color: black;
+  color: white;
+  top: var(--black-y);
+  left: var(--black-x);
+  animation: 
+    spin 3s linear infinite, 
+    shrink 1.5s linear infinite;
+  transition: all 2s;
+}
